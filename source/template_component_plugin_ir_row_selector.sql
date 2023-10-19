@@ -19,7 +19,7 @@ whenever sqlerror exit sql.sqlcode rollback
 begin
 wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
+,p_release=>'23.1.5'
 ,p_default_workspace_id=>1476649221156792
 ,p_default_application_id=>17000033
 ,p_default_id_offset=>6371518611441572488
@@ -33,14 +33,14 @@ prompt APPLICATION 17000033 - Standard Violation Tracker
 -- Application Export:
 --   Application:     17000033
 --   Name:            Standard Violation Tracker
---   Date and Time:   19:15 Wednesday October 11, 2023
+--   Date and Time:   19:15 Thursday October 19, 2023
 --   Exported By:     HAYDEN.H.HUDSON@ORACLE.COM
 --   Flashback:       0
 --   Export Type:     Component Export
 --   Manifest
 --     PLUGIN: 345580363643662699
 --   Manifest End
---   Version:         23.1.0
+--   Version:         23.1.5
 --   Instance ID:     697860793020242
 --
 
@@ -60,6 +60,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_supported_component_types=>'PARTIAL'
 ,p_javascript_file_urls=>'#PLUGIN_FILES#irrs.js'
 ,p_partial_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'{if !SHOW_YN_FIELD/}',
 '<span ',
 '    class="irrs u-selector" ',
 '    role="checkbox" ',
@@ -72,20 +73,24 @@ wwv_flow_imp_shared.create_plugin(
 '    id = "irrs-#ID#"',
 '    onclick="javascript:irrs.MngPK(this);"',
 '>',
-'</span>'))
+'</span>',
+'{else/}',
+'<span></span>',
+'{endif/}'))
 ,p_default_escape_mode=>'HTML'
 ,p_translate_this_template=>false
 ,p_api_version=>2
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'This column type imitates the functionality of the APEX$ROW_SELECTOR field of Interactive Grids. ',
+'This column type imitates some of the functionality of the APEX$ROW_SELECTOR field of Interactive Grids. ',
 '',
-'The selected values are stored in a javascript array named ''irrsPKs''. ',
+'The selected values are stored in a javascript array named ''irrs.PKs''. ',
 '',
 'For ''Select All'' functionality, add the following code in the heading field : <span class="irrsHeader u-selector" role="checkbox" aria-checked="false" aria-label="Select All Rows" title="Select All" aria-disabled="false" onclick="javascript:irrs.Sele'
 ||'ctAll(this);"></span>'))
 ,p_version_identifier=>'1.0'
+,p_about_url=>'https://github.com/hhudson/IR_row_selector_template_component_plugin'
 ,p_files_version=>36
 );
 wwv_flow_imp_shared.create_plugin_attribute(
@@ -119,8 +124,25 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_escape_mode=>'HTML'
 ,p_is_translatable=>false
 ,p_text_case=>'UPPER'
-,p_examples=>'Try it! If "P1_SELECTED_IDS" is the name of your chosen "output item", selected a few values and run "apex.item(''P1_SELECTED_IDS'').getValue()" in your console.'
-,p_help_text=>'Select a Page Item in which the comma-separated list of selected Primary Keys should be written, e.g. "P1_SELECTED_IDS"'
+,p_examples=>'Try it! If "P1_SELECTED_IDS" is the name of your chosen "output item", select a few values in your IR and run "apex.item(''P1_SELECTED_IDS'').getValue()" in your console.'
+,p_help_text=>'Select a Page Item into which the comma-separated list of selected "Primary Keys" should be written, e.g. "P1_SELECTED_IDS"'
+);
+wwv_flow_imp_shared.create_plugin_attribute(
+ p_id=>wwv_flow_imp.id(334041735736831224)
+,p_plugin_id=>wwv_flow_imp.id(345580363643662699)
+,p_attribute_scope=>'COMPONENT'
+,p_attribute_sequence=>4
+,p_display_sequence=>40
+,p_static_id=>'SHOW_YN_FIELD'
+,p_prompt=>'Show Selector Y/N Field'
+,p_attribute_type=>'SESSION STATE VALUE'
+,p_is_required=>false
+,p_demo_value=>'SHOW_SELECTOR_YN'
+,p_escape_mode=>'HTML'
+,p_column_data_types=>'VARCHAR2'
+,p_is_translatable=>false
+,p_examples=>'eg ''SHOW_SELECTOR_YN'''
+,p_help_text=>unistr('Do you have a field that returns \2019F\2019, \2018N\2019, or \20180\2019 to indicate that a selector box should not be shown? Put it here.')
 );
 end;
 /
