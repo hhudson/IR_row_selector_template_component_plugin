@@ -1,5 +1,7 @@
 # IR Row Selector plugin
 
+[Demo App](https://tqmbetacznh1j19-ila.adb.us-ashburn-1.oraclecloudapps.com/ords/f?p=149) (requires a Google account)
+
 ## Description
 
 A Plugin for Interactive Reports to replicate the APEX$ROW_SELECTOR functionality of the Interactive Grid. With this column type to your Interactive Report, selecting rows will automatically add the "primary key" of your choice to a javascript array named `irrs.PKs`:
