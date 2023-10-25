@@ -5,7 +5,7 @@ You can also [download the demo app](misc/f149.sql).
 
 ## Description
 
-A Plugin for Interactive Reports to imitate a portion the APEX$ROW_SELECTOR functionality (of the Interactive Grid). With this column type to your Interactive Report, selecting rows will automatically add the "primary key" of your choice to a javascript array named `irrs.PKs`:
+A Plugin for Interactive Reports to imitate a portion the APEX$ROW_SELECTOR functionality (of the Interactive Grid). Add this column type to your Interactive Report and selecting rows will automatically add the "primary key" of your choice to a javascript array named `irrs.PKs` and an `Output Page Item` of your choice:
 <p align="center">
   <img src="img/irrs.gif" alt="Demonstration"/>
 </p>

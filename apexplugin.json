@@ -1,0 +1,34 @@
+{
+    "name" : "IR Row Selector",
+    "version" : "1.0",
+    "description" : "A Plugin for Interactive Reports to imitate a portion the APEX$ROW_SELECTOR Interactive Grid functionality",
+    "keywords" : ["plugin", "IR", "IG", "Interactive Grid", "Interactive Report"],
+    "homepage" : "https://github.com/hhudson/IR_row_selector_template_component_plugin",
+    "bugs" : {
+      "url" : "https://github.com/hhudson/IR_row_selector_template_component_plugin/issues",
+      "email" : "haydenhhudson@gmail.com"
+    },
+    "license" : "MIT",
+    "commercial" : "No",
+    "author" : {
+      "name" : "Hayden Hudson",
+      "email" : "haydenhhudson@gmail.com",
+      "url" : "2122.io"
+    },
+    "repository" : {
+      "type" : "git",
+      "url" : "https://github.com/hhudson/IR_row_selector_template_component_plugin.git"
+    },
+   "oracle" : {
+      "versions" : ["18", "19"],
+      "apex" : {
+        "versions" : ["23.1"],
+        "plugin" : {
+          "internalName" : "IR_ROW_SELECTOR",
+          "type" : "Template Component",
+          "demo" : "https://tqmbetacznh1j19-ila.adb.us-ashburn-1.oraclecloudapps.com/ords/r/ila/ir-row-selector-demo-app",
+          "previewImage" : "https://raw.githubusercontent.com/hhudson/IR_row_selector_template_component_plugin/main/img/intro.png"
+        }
+      }
+    }
+  }
