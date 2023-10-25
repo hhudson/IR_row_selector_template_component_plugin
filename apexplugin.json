@@ -1,7 +1,7 @@
 {
-    "name" : "IR Row Selector",
-    "version" : "1.0",
-    "description" : "A Plugin for Interactive Reports to imitate a portion the APEX$ROW_SELECTOR Interactive Grid functionality",
+    "name" : "IR_Row_Selector",
+    "version" : "1.0.0",
+    "description" : "A Plugin for Interactive Reports to imitate the Interactive Grid row selector functionality",
     "keywords" : ["Interactive Grid", "Interactive Report"],
     "homepage" : "https://github.com/hhudson/IR_row_selector_template_component_plugin",
     "bugs" : {
