@@ -24,7 +24,7 @@
       "apex" : {
         "versions" : ["23.1"],
         "plugin" : {
-          "internalName" : "IR_IG_ROW_SELECTOR",
+          "internalName" : "IR_ROW_SELECTOR",
           "type" : "Template Component",
           "demo" : "https://tqmbetacznh1j19-ila.adb.us-ashburn-1.oraclecloudapps.com/ords/r/ila/ir-row-selector-demo-app",
           "previewImage" : "https://raw.githubusercontent.com/hhudson/IR_row_selector_template_component_plugin/main/img/intro.png"
